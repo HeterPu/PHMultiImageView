@@ -682,7 +682,7 @@
         CGSize thumsize = [weakSelf getThumbNailSizeWith:count];
         UIImage *image1 = image;
         [image1 cropCenterAndScaleImageToSize:thumsize];
-        _imageView1.image = image1;
+        view.image = image1;
     }];
 
     

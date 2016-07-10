@@ -28,11 +28,11 @@
     UIImage * pic8 = [UIImage imageNamed:@"8"];
     UIImage * pic9 = [UIImage imageNamed:@"9"];
     
-    NSString *str1 =@"http://t1.mmonly.cc/uploads/allimg/20150416/31779-yezRjZ.jpg";
-    NSString *str2 =@"http://e.hiphotos.baidu.com/image/h%3D200/sign=c898bddf19950a7b6a3549c43ad0625c/14ce36d3d539b600be63e95eed50352ac75cb7ae.jpg";
-    NSString *str3 =@"http://t1.mmonly.cc/uploads/allimg/20150416/31779-yezRjZ.jpg";
-    NSString *str4 =@"http://t1.mmonly.cc/uploads/allimg/20150416/31779-yezRjZ.jpg";
-    NSString *str5 =@"http://t1.mmonly.cc/uploads/allimg/20150416/31779-yezRjZ.jpg";
+    NSString *str1 =@"http://upload.my0538.com/2016/0617/1466131942484.jpg";
+    NSString *str2 =@"http://upload.my0538.com/2016/0617/1466131942484.jpg";
+    NSString *str3 =@"http://upload.my0538.com/2016/0617/1466131942484.jpg";
+    NSString *str4 =@"http://upload.my0538.com/2016/0617/1466131942484.jpg";
+    NSString *str5 =@"http://pic35.nipic.com/20131120/8702627_155644386000_2.jpg";
     NSString *str6 =@"http://t1.mmonly.cc/uploads/allimg/20150416/31779-yezRjZ.jpg";
     NSString *str7 =@"http://t1.mmonly.cc/uploads/allimg/20150416/31779-yezRjZ.jpg";
     NSString *str8 =@"http://t1.mmonly.cc/uploads/allimg/20150416/31779-yezRjZ.jpg";
