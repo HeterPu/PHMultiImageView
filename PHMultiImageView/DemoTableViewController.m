@@ -86,7 +86,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DemoTableViewCell *cell = [DemoTableViewCell DemoCellWithTableView:tableView];
     cell.urlarray = self.urlSumArray[indexPath.section];
-    cell.backgroundColor = [UIColor clearColor];
+//    cell.backgroundColor = [UIColor clearColor];
     
     
     
