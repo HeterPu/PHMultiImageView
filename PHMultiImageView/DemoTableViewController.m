@@ -150,7 +150,7 @@
 
     DemoTableViewCell *cell = [DemoTableViewCell DemoCellWithTableView:tableView andIndexpath:indexPath];
         cell.urlarray = self.localSumArray[indexPath.section];
-        cell.backgroundColor = [UIColor clearColor];
+//        cell.backgroundColor = [UIColor clearColor];
 //    cell.urlarray = self.urlSumArray[indexPath.section];
     return cell;
 }

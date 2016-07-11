@@ -20,11 +20,11 @@
 
 
 +(instancetype)DemoCellWithTableView:(UITableView *)tableview andIndexpath:(NSIndexPath *)indexPath {
-//    static NSString *ID = @"demo";
+    static NSString *ID = @"demo";
     NSString *cellID = [NSString stringWithFormat:@"cell%ld%ld", (long)[indexPath section], (long)[indexPath row]];
-  DemoTableViewCell  *cell = [tableview dequeueReusableCellWithIdentifier:cellID];
+  DemoTableViewCell  *cell = [tableview dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
-        cell = [[DemoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[DemoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
 //    DemoTableViewCell  *cell = [[DemoTableViewCell alloc] init];
     return cell;
