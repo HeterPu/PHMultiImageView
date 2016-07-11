@@ -10,6 +10,8 @@
 #import "DemoTableViewCell.h"
 #import "PHMultiImageView.h"
 
+#import "SDWebImageManager.h"
+
 @interface DemoTableViewController ()
 
 
@@ -41,14 +43,37 @@
 -(NSArray *)urlSumArray {
     if (!_urlSumArray) {
         
-    NSArray *array = [NSArray array];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"urlarray" ofType:@"plist"];
-    array = [[NSArray alloc] initWithContentsOfFile:path];
-    _urlSumArray = array;
+        NSArray *array = [NSArray array];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"urlarray" ofType:@"plist"];
+        array = [[NSArray alloc] initWithContentsOfFile:path];
+        _urlSumArray = array;
+        [self settingWebImageWithArray:array];
     }
     return _urlSumArray;
 }
 
+
+-(void)settingWebImageWithArray:(NSArray *)array {
+    
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    for (int i = 0;i < array.count;i++) {
+        for (int j = 0; j < [array[i] count]; j++) {
+            NSString *str = array[i][j];
+            if([manager diskImageExistsForURL:[NSURL URLWithString:str]]){
+                NSLog(@"link is %@",[manager cacheKeyForURL:[NSURL URLWithString:str]]);
+            }
+            else
+            {
+                
+                [manager downloadImageWithURL:[NSURL URLWithString:str] options:SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                    
+                }];
+            }
+        }
+    }
+    
+}
 
 
 #pragma mark - Table view data source

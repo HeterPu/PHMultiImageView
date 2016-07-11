@@ -678,13 +678,28 @@
 
 -(void)settingWebThumbNailImageWithImageView:(UIImageView *)view andUrlString:(NSString *)str andCount:(NSInteger)count {
     __typeof(self) weakSelf = self;
-    [view sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        CGSize thumsize = [weakSelf getThumbNailSizeWith:count];
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    if([manager diskImageExistsForURL:[NSURL URLWithString:str]]){
+        //        NSLog(@"link is %@",[manager cacheKeyForURL:[NSURL URLWithString:str]]);
+        UIImage *image = [manager.imageCache imageFromDiskCacheForKey:str];
+        CGSize thumsize = [self getThumbNailSizeWith:count];
         UIImage *image1 = image;
         [image1 cropCenterAndScaleImageToSize:thumsize];
         view.image = image1;
-    }];
-
+    }
+    else
+    {
+        [manager downloadImageWithURL:[NSURL URLWithString:str] options:SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            CGSize thumsize = [weakSelf getThumbNailSizeWith:count];
+            UIImage *image1 = image;
+            [image1 cropCenterAndScaleImageToSize:thumsize];
+            view.image = image1;
+            if (cacheType == SDImageCacheTypeDisk) {
+                NSLog(@"fffffff");
+            }
+        }];
+    }
     
 }
 
