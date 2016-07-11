@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.hidden = YES;
     self.tableView.backgroundColor= [UIColor cyanColor];
     
     
