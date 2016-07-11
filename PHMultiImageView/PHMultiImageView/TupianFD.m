@@ -94,8 +94,14 @@ static CGRect oldframe;
     scrollview.bounds = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height);
     scrollview.center = CGPointMake([UIScreen mainScreen].bounds.size.width * (count - 1 + 0.5) , [UIScreen mainScreen].bounds.size.height / 2);
     UIImageView *imageV = [[UIImageView alloc] init];
+    
+/*
+ 倘若需要网络图片默认背景，由于要设置背景图片，所以需要尺寸对其，故要执行以下代码，否则在网络图片未加载时可以不用设置图片视图的尺寸。
     imageV.bounds = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, image.size.height*[UIScreen mainScreen].bounds.size.width/image.size.width);
     imageV.center = CGPointMake([UIScreen mainScreen].bounds.size.width * (0.5) , [UIScreen mainScreen].bounds.size.height / 2);
+*/
+    imageV.center = CGPointMake([UIScreen mainScreen].bounds.size.width * (0.5) , [UIScreen mainScreen].bounds.size.height / 2);
+    
     imageV.image = image;
     imageV.userInteractionEnabled = YES;
     imageV.tag = 10;
@@ -149,7 +155,7 @@ static CGRect oldframe;
     oldframe=[imagev convertRect:imagev.bounds toView:window];
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     for (int i = 1; i < array.count + 1; i++) {
-        UIImage *image = [UIImage imageNamed:@"placeholder"];
+        UIImage *image = [UIImage imageNamed:@""];
         UIScrollView *tempt = [self getWebImageViewWithCount:i andImage:image] ;
         tempt.tag = 10 + i;
         [scrollView addSubview:tempt];

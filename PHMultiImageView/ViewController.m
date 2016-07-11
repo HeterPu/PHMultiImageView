@@ -52,7 +52,7 @@
 //    [arrray addObject:pic9];
     
     PHMultiImageView *myview = [[PHMultiImageView alloc] init];
-    myview.backgroundColor = [UIColor redColor];
+    myview.backgroundColor = [UIColor lightGrayColor];
     [myview PHMIVWithWidth:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, 100) AndWebPicUrlArray:arrray];
     
     [self.view addSubview:myview];

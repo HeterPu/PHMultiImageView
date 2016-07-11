@@ -15,6 +15,8 @@
 		D0062E001D2F4C3800441883 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = D0062DF81D2F4C3800441883 /* UIImage+Alpha.m */; };
 		D0062E011D2F4C3800441883 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = D0062DFA1D2F4C3800441883 /* UIImage+Common.m */; };
 		D030ABC51D3335510030B235 /* TupianFD.m in Sources */ = {isa = PBXBuildFile; fileRef = D030ABC41D3335510030B235 /* TupianFD.m */; };
+		D030ABC81D333C1D0030B235 /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D030ABC71D333C1D0030B235 /* DemoTableViewController.m */; };
+		D030ABCB1D333FA00030B235 /* DemoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D030ABCA1D333FA00030B235 /* DemoTableViewCell.m */; };
 		D0FF39AA1D2E36A3006F9D54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF39A91D2E36A3006F9D54 /* main.m */; };
 		D0FF39AD1D2E36A3006F9D54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF39AC1D2E36A3006F9D54 /* AppDelegate.m */; };
 		D0FF39B01D2E36A3006F9D54 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF39AF1D2E36A3006F9D54 /* ViewController.m */; };
@@ -62,6 +64,10 @@
 		D0062DFA1D2F4C3800441883 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		D030ABC31D3335510030B235 /* TupianFD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TupianFD.h; sourceTree = "<group>"; };
 		D030ABC41D3335510030B235 /* TupianFD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TupianFD.m; sourceTree = "<group>"; };
+		D030ABC61D333C1D0030B235 /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
+		D030ABC71D333C1D0030B235 /* DemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewController.m; sourceTree = "<group>"; };
+		D030ABC91D333FA00030B235 /* DemoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewCell.h; sourceTree = "<group>"; };
+		D030ABCA1D333FA00030B235 /* DemoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewCell.m; sourceTree = "<group>"; };
 		D0FF39A51D2E36A3006F9D54 /* PHMultiImageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PHMultiImageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FF39A91D2E36A3006F9D54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0FF39AB1D2E36A3006F9D54 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -190,6 +196,10 @@
 				D0FF39AE1D2E36A3006F9D54 /* ViewController.h */,
 				D0FF39AF1D2E36A3006F9D54 /* ViewController.m */,
 				D0FF39B11D2E36A3006F9D54 /* Main.storyboard */,
+				D030ABC61D333C1D0030B235 /* DemoTableViewController.h */,
+				D030ABC71D333C1D0030B235 /* DemoTableViewController.m */,
+				D030ABC91D333FA00030B235 /* DemoTableViewCell.h */,
+				D030ABCA1D333FA00030B235 /* DemoTableViewCell.m */,
 				D0FF39B41D2E36A3006F9D54 /* Assets.xcassets */,
 				D0FF39B61D2E36A3006F9D54 /* LaunchScreen.storyboard */,
 				D0FF39B91D2E36A3006F9D54 /* Info.plist */,
@@ -330,7 +340,9 @@
 			files = (
 				D0FF39F51D2E47BD006F9D54 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D0FF39F31D2E47BD006F9D54 /* UIImage+MultiFormat.m in Sources */,
+				D030ABCB1D333FA00030B235 /* DemoTableViewCell.m in Sources */,
 				D0062E001D2F4C3800441883 /* UIImage+Alpha.m in Sources */,
+				D030ABC81D333C1D0030B235 /* DemoTableViewController.m in Sources */,
 				D0FF39EE1D2E47BD006F9D54 /* SDWebImageDownloaderOperation.m in Sources */,
 				D0062E011D2F4C3800441883 /* UIImage+Common.m in Sources */,
 				D0FF39B01D2E36A3006F9D54 /* ViewController.m in Sources */,
