@@ -873,9 +873,8 @@
     }
     
     self.frame = CGRectMake(pointx, pointy, width, height);
-    return  self.frame;
+    return  CGRectMake(pointx, pointy, width, height);
 }
-
 
 
 /*

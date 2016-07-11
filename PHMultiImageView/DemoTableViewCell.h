@@ -10,4 +10,7 @@
 
 @interface DemoTableViewCell : UITableViewCell
 
+@property(nonatomic,strong)NSArray *urlarray;
+
++(instancetype)DemoCellWithTableView:(UITableView *)tableview;
 @end

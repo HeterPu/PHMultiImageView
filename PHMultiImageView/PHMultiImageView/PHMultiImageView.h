@@ -17,4 +17,5 @@
 -(CGRect)PHMIVWithWidth:(CGRect)frame
        AndLocalPicArray:(NSArray *)array;
 
+-(CGRect)getRectFromFrame:(CGRect)frame andArray:(NSArray *)array;
 @end

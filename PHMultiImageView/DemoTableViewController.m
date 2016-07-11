@@ -7,8 +7,14 @@
 //
 
 #import "DemoTableViewController.h"
+#import "DemoTableViewCell.h"
+#import "PHMultiImageView.h"
 
 @interface DemoTableViewController ()
+
+
+@property(nonatomic,strong)NSArray *urlSumArray;
+
 
 @end
 
@@ -31,16 +37,35 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(NSArray *)urlSumArray {
+    if (!_urlSumArray) {
+        
+    NSArray *array = [NSArray array];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"urlarray" ofType:@"plist"];
+    array = [[NSArray alloc] initWithContentsOfFile:path];
+    _urlSumArray = array;
+    }
+    return _urlSumArray;
 }
+
+
 
 #pragma mark - Table view data source
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat phheight = [[PHMultiImageView alloc]getRectFromFrame:[UIScreen mainScreen].bounds andArray:self.urlSumArray[indexPath.section]].size.height;
+    NSLog(@"vvvvvv%li",indexPath.section);
+    NSLog(@"vvvvvv%f",[[PHMultiImageView alloc]getRectFromFrame:[UIScreen mainScreen].bounds andArray:self.urlSumArray[indexPath.section]].size.width);
+    return phheight + 50;
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 15;
+    return 16;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -59,8 +84,10 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    DemoTableViewCell *cell = [DemoTableViewCell DemoCellWithTableView:tableView];
+    cell.urlarray = self.urlSumArray[indexPath.section];
     cell.backgroundColor = [UIColor clearColor];
+    
     
     
     return cell;
