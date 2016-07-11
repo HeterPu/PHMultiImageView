@@ -145,10 +145,12 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DemoTableViewCell *cell = [DemoTableViewCell DemoCellWithTableView:tableView];
+
+
+    DemoTableViewCell *cell = [DemoTableViewCell DemoCellWithTableView:tableView andIndexpath:indexPath];
+        cell.urlarray = self.localSumArray[indexPath.section];
+        cell.backgroundColor = [UIColor clearColor];
 //    cell.urlarray = self.urlSumArray[indexPath.section];
-    cell.urlarray = self.localSumArray[indexPath.section];
-    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

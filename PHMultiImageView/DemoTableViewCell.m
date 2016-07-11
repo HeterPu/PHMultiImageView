@@ -19,11 +19,12 @@
 @implementation DemoTableViewCell
 
 
-+(instancetype)DemoCellWithTableView:(UITableView *)tableview {
-    static NSString *ID = @"demo";
-  DemoTableViewCell  *cell = [tableview dequeueReusableCellWithIdentifier:ID];
++(instancetype)DemoCellWithTableView:(UITableView *)tableview andIndexpath:(NSIndexPath *)indexPath {
+//    static NSString *ID = @"demo";
+    NSString *cellID = [NSString stringWithFormat:@"cell%ld%ld", (long)[indexPath section], (long)[indexPath row]];
+  DemoTableViewCell  *cell = [tableview dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
-        cell = [[DemoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell = [[DemoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
 //    DemoTableViewCell  *cell = [[DemoTableViewCell alloc] init];
     return cell;
