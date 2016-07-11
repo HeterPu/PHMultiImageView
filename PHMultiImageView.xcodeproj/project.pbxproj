@@ -14,8 +14,7 @@
 		D0062DFE1D2F4C3800441883 /* PathUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D0062DF41D2F4C3800441883 /* PathUtility.m */; };
 		D0062E001D2F4C3800441883 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = D0062DF81D2F4C3800441883 /* UIImage+Alpha.m */; };
 		D0062E011D2F4C3800441883 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = D0062DFA1D2F4C3800441883 /* UIImage+Common.m */; };
-		D0062E051D2F4C6700441883 /* TupianFD.m in Sources */ = {isa = PBXBuildFile; fileRef = D0062E041D2F4C6700441883 /* TupianFD.m */; };
-		D0062E2E1D2F957000441883 /* PHScrollAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0062E2D1D2F957000441883 /* PHScrollAdapter.m */; };
+		D030ABC51D3335510030B235 /* TupianFD.m in Sources */ = {isa = PBXBuildFile; fileRef = D030ABC41D3335510030B235 /* TupianFD.m */; };
 		D0FF39AA1D2E36A3006F9D54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF39A91D2E36A3006F9D54 /* main.m */; };
 		D0FF39AD1D2E36A3006F9D54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF39AC1D2E36A3006F9D54 /* AppDelegate.m */; };
 		D0FF39B01D2E36A3006F9D54 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FF39AF1D2E36A3006F9D54 /* ViewController.m */; };
@@ -61,10 +60,8 @@
 		D0062DF81D2F4C3800441883 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		D0062DF91D2F4C3800441883 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
 		D0062DFA1D2F4C3800441883 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
-		D0062E031D2F4C6700441883 /* TupianFD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TupianFD.h; sourceTree = "<group>"; };
-		D0062E041D2F4C6700441883 /* TupianFD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TupianFD.m; sourceTree = "<group>"; };
-		D0062E2C1D2F957000441883 /* PHScrollAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHScrollAdapter.h; sourceTree = "<group>"; };
-		D0062E2D1D2F957000441883 /* PHScrollAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHScrollAdapter.m; sourceTree = "<group>"; };
+		D030ABC31D3335510030B235 /* TupianFD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TupianFD.h; sourceTree = "<group>"; };
+		D030ABC41D3335510030B235 /* TupianFD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TupianFD.m; sourceTree = "<group>"; };
 		D0FF39A51D2E36A3006F9D54 /* PHMultiImageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PHMultiImageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FF39A91D2E36A3006F9D54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0FF39AB1D2E36A3006F9D54 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -165,15 +162,6 @@
 			path = Path;
 			sourceTree = "<group>";
 		};
-		D0062E021D2F4C5F00441883 /* 图片点击放大 */ = {
-			isa = PBXGroup;
-			children = (
-				D0062E2C1D2F957000441883 /* PHScrollAdapter.h */,
-				D0062E2D1D2F957000441883 /* PHScrollAdapter.m */,
-			);
-			path = "图片点击放大";
-			sourceTree = "<group>";
-		};
 		D0FF399C1D2E36A3006F9D54 = {
 			isa = PBXGroup;
 			children = (
@@ -193,9 +181,6 @@
 		D0FF39A71D2E36A3006F9D54 /* PHMultiImageView */ = {
 			isa = PBXGroup;
 			children = (
-				D0062E021D2F4C5F00441883 /* 图片点击放大 */,
-				D0062E031D2F4C6700441883 /* TupianFD.h */,
-				D0062E041D2F4C6700441883 /* TupianFD.m */,
 				D0062DE81D2F4C3800441883 /* 图片处理 */,
 				D0062DD41D2F3B4400441883 /* Color */,
 				D0FF39C51D2E47BD006F9D54 /* SDWebImage */,
@@ -224,6 +209,8 @@
 		D0FF39BF1D2E36D4006F9D54 /* PHMultiImageView */ = {
 			isa = PBXGroup;
 			children = (
+				D030ABC31D3335510030B235 /* TupianFD.h */,
+				D030ABC41D3335510030B235 /* TupianFD.m */,
 				D0FF39C21D2E3749006F9D54 /* PHMultiImageView.h */,
 				D0FF39C31D2E3749006F9D54 /* PHMultiImageView.m */,
 			);
@@ -346,10 +333,10 @@
 				D0062E001D2F4C3800441883 /* UIImage+Alpha.m in Sources */,
 				D0FF39EE1D2E47BD006F9D54 /* SDWebImageDownloaderOperation.m in Sources */,
 				D0062E011D2F4C3800441883 /* UIImage+Common.m in Sources */,
-				D0062E2E1D2F957000441883 /* PHScrollAdapter.m in Sources */,
 				D0FF39B01D2E36A3006F9D54 /* ViewController.m in Sources */,
 				D0062DFC1D2F4C3800441883 /* NSData+Common.m in Sources */,
 				D0FF39EB1D2E47BD006F9D54 /* SDWebImageCompat.m in Sources */,
+				D030ABC51D3335510030B235 /* TupianFD.m in Sources */,
 				D0FF39F21D2E47BD006F9D54 /* UIImage+GIF.m in Sources */,
 				D0FF39F01D2E47BD006F9D54 /* SDWebImagePrefetcher.m in Sources */,
 				D0FF39AD1D2E36A3006F9D54 /* AppDelegate.m in Sources */,
@@ -362,7 +349,6 @@
 				D0FF39F71D2E47BD006F9D54 /* UIView+WebCacheOperation.m in Sources */,
 				D0062DFD1D2F4C3800441883 /* NSString+Common.m in Sources */,
 				D0FF39F11D2E47BD006F9D54 /* UIButton+WebCache.m in Sources */,
-				D0062E051D2F4C6700441883 /* TupianFD.m in Sources */,
 				D0FF39E81D2E47BD006F9D54 /* MKAnnotationView+WebCache.m in Sources */,
 				D0FF39E91D2E47BD006F9D54 /* NSData+ImageContentType.m in Sources */,
 				D0FF39AA1D2E36A3006F9D54 /* main.m in Sources */,

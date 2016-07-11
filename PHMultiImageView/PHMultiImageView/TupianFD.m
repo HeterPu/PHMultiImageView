@@ -7,7 +7,6 @@
 //
 
 #import "TupianFD.h"
-#import "PHScrollAdapter.h"
 #import "SDWebImageManager.h"
 
 #import "UIImageView+WebCache.h"
