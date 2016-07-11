@@ -23,8 +23,9 @@
     static NSString *ID = @"demo";
   DemoTableViewCell  *cell = [tableview dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
-        cell = [[DemoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[DemoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     }
+//    DemoTableViewCell  *cell = [[DemoTableViewCell alloc] init];
     return cell;
 }
 
@@ -36,11 +37,24 @@
         PHMultiImageView *myview = [[PHMultiImageView alloc] init];
         myview.backgroundColor = [UIColor lightGrayColor];
         
-        [self.contentView addSubview:myview];
+        [self.contentView addSubnode:myview];
         _phMulti = myview;
     }
     return self;
 }
+
+//-(instancetype)init {
+//    self = [super init];
+//    if (self) {
+//            PHMultiImageView *myview = [[PHMultiImageView alloc] init];
+//            myview.backgroundColor = [UIColor lightGrayColor];
+//    
+//            [self addSubnode:myview];
+//            _phMulti = myview;
+//    }
+//    
+//    return  self;
+//}
 
 
 
@@ -53,7 +67,7 @@
 
 -(void)settingframeandData{
 
-    [_phMulti PHMIVWithWidth:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, 100) AndWebPicUrlArray:_urlarray];
+    [_phMulti PHMIVWithWidth:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, 100) AndLocalPicArray:_urlarray];
     
 }
      
@@ -64,10 +78,6 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
 
 @end

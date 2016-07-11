@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncDisplayKit/AsyncDisplayKit.h"
 
-@interface PHMultiImageView : UIView
+
+@interface PHMultiImageView : ASDisplayNode
 
 
 -(CGRect)PHMIVWithWidth:(CGRect)frame

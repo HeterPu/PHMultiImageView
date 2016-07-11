@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncDisplayKit/AsyncDisplayKit.h"
 
 @interface DemoTableViewCell : UITableViewCell
 

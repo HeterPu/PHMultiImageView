@@ -11,6 +11,10 @@
 #import "TupianFD.h"
 #import "UIImage+Common.h"
 
+#import "SDWebImageManager.h"
+
+#import "AsyncDisplayKit/AsyncDisplayKit.h"
+
 #define KPicMargin 3
 #define KPicPadding 3
 
@@ -18,15 +22,15 @@
 
 
 
-@property(nonatomic,weak)UIImageView *imageView1;
-@property(nonatomic,weak)UIImageView *imageView2;
-@property(nonatomic,weak)UIImageView *imageView3;
-@property(nonatomic,weak)UIImageView *imageView4;
-@property(nonatomic,weak)UIImageView *imageView5;
-@property(nonatomic,weak)UIImageView *imageView6;
-@property(nonatomic,weak)UIImageView *imageView7;
-@property(nonatomic,weak)UIImageView *imageView8;
-@property(nonatomic,weak)UIImageView *imageView9;
+@property(nonatomic,weak)ASImageNode *imageView1;
+@property(nonatomic,weak)ASImageNode *imageView2;
+@property(nonatomic,weak)ASImageNode *imageView3;
+@property(nonatomic,weak)ASImageNode *imageView4;
+@property(nonatomic,weak)ASImageNode *imageView5;
+@property(nonatomic,weak)ASImageNode *imageView6;
+@property(nonatomic,weak)ASImageNode *imageView7;
+@property(nonatomic,weak)ASImageNode *imageView8;
+@property(nonatomic,weak)ASImageNode *imageView9;
 
 
 @property(nonatomic,strong) NSArray *thumbNailPicArray;
@@ -35,6 +39,7 @@
 @property(nonatomic,strong) NSArray *urlPicArray;
 
 @property(nonatomic,strong)TupianFD *tupianFD;
+@property(nonatomic,strong)SDWebImageManager *sdManager;
 
 @end
 
@@ -45,24 +50,24 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        UIImageView *imageV1 = [[UIImageView alloc] init];
-        UIImageView *imageV2 = [[UIImageView alloc] init];
-        UIImageView *imageV3 = [[UIImageView alloc] init];
-        UIImageView *imageV4 = [[UIImageView alloc] init];
-        UIImageView *imageV5 = [[UIImageView alloc] init];
-        UIImageView *imageV6 = [[UIImageView alloc] init];
-        UIImageView *imageV7 = [[UIImageView alloc] init];
-        UIImageView *imageV8 = [[UIImageView alloc] init];
-        UIImageView *imageV9 = [[UIImageView alloc] init];
-        [self addSubview:imageV1];
-        [self addSubview:imageV2];
-        [self addSubview:imageV3];
-        [self addSubview:imageV4];
-        [self addSubview:imageV5];
-        [self addSubview:imageV6];
-        [self addSubview:imageV7];
-        [self addSubview:imageV8];
-        [self addSubview:imageV9];
+        ASImageNode *imageV1 = [[ASImageNode alloc] init];
+        ASImageNode *imageV2 = [[ASImageNode alloc] init];
+        ASImageNode *imageV3 = [[ASImageNode alloc] init];
+        ASImageNode *imageV4 = [[ASImageNode alloc] init];
+        ASImageNode *imageV5 = [[ASImageNode alloc] init];
+        ASImageNode *imageV6 = [[ASImageNode alloc] init];
+        ASImageNode *imageV7 = [[ASImageNode alloc] init];
+        ASImageNode *imageV8 = [[ASImageNode alloc] init];
+        ASImageNode *imageV9 = [[ASImageNode alloc] init];
+        [self addSubnode:imageV1];
+        [self addSubnode:imageV2];
+        [self addSubnode:imageV3];
+        [self addSubnode:imageV4];
+        [self addSubnode:imageV5];
+        [self addSubnode:imageV6];
+        [self addSubnode:imageV7];
+        [self addSubnode:imageV8];
+        [self addSubnode:imageV9];
         _imageView1 = imageV1;
         _imageView2 = imageV2;
         _imageView3 = imageV3;
@@ -72,15 +77,15 @@
         _imageView7 = imageV7;
         _imageView8 = imageV8;
         _imageView9 = imageV9;
-        _imageView1.tag = 1;
-        _imageView2.tag = 2;
-        _imageView3.tag = 3;
-        _imageView4.tag = 4;
-        _imageView5.tag = 5;
-        _imageView6.tag = 6;
-        _imageView7.tag = 7;
-        _imageView8.tag = 8;
-        _imageView9.tag = 9;
+        _imageView1.view.tag = 1;
+        _imageView2.view.tag = 2;
+        _imageView3.view.tag = 3;
+        _imageView4.view.tag = 4;
+        _imageView5.view.tag = 5;
+        _imageView6.view.tag = 6;
+        _imageView7.view.tag = 7;
+        _imageView8.view.tag = 8;
+        _imageView9.view.tag = 9;
         _imageView1.userInteractionEnabled = YES;
         _imageView2.userInteractionEnabled = YES;
         _imageView3.userInteractionEnabled = YES;
@@ -90,39 +95,53 @@
         _imageView7.userInteractionEnabled = YES;
         _imageView8.userInteractionEnabled = YES;
         _imageView9.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap1  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
-        UITapGestureRecognizer *tap2  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
-        UITapGestureRecognizer *tap3  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
-        UITapGestureRecognizer *tap4  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
-        UITapGestureRecognizer *tap5  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
-        UITapGestureRecognizer *tap6  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
-        UITapGestureRecognizer *tap7  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
-        UITapGestureRecognizer *tap8  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
-        UITapGestureRecognizer *tap9  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
-        [_imageView1 addGestureRecognizer:tap1];
-        [_imageView2 addGestureRecognizer:tap2];
-        [_imageView3 addGestureRecognizer:tap3];
-        [_imageView4 addGestureRecognizer:tap4];
-        [_imageView5 addGestureRecognizer:tap5];
-        [_imageView6 addGestureRecognizer:tap6];
-        [_imageView7 addGestureRecognizer:tap7];
-        [_imageView8 addGestureRecognizer:tap8];
-        [_imageView9 addGestureRecognizer:tap9];
+//        UITapGestureRecognizer *tap1  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
+//        UITapGestureRecognizer *tap2  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
+//        UITapGestureRecognizer *tap3  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
+//        UITapGestureRecognizer *tap4  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
+//        UITapGestureRecognizer *tap5  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
+//        UITapGestureRecognizer *tap6  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
+//        UITapGestureRecognizer *tap7  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
+//        UITapGestureRecognizer *tap8  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
+//        UITapGestureRecognizer *tap9  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage:)];
+//        [_imageView1 addGestureRecognizer:tap1];
+//        [_imageView2 addGestureRecognizer:tap2];
+//        [_imageView3 addGestureRecognizer:tap3];
+//        [_imageView4 addGestureRecognizer:tap4];
+//        [_imageView5 addGestureRecognizer:tap5];
+//        [_imageView6 addGestureRecognizer:tap6];
+//        [_imageView7 addGestureRecognizer:tap7];
+//        [_imageView8 addGestureRecognizer:tap8];
+//        [_imageView9 addGestureRecognizer:tap9];
+        [_imageView1 addTarget:self action:@selector(magnifyImage:) forControlEvents:ASControlNodeEventTouchUpInside];
+        [_imageView2 addTarget:self action:@selector(magnifyImage:) forControlEvents:ASControlNodeEventTouchUpInside];
+        [_imageView3 addTarget:self action:@selector(magnifyImage:) forControlEvents:ASControlNodeEventTouchUpInside];
+        [_imageView4 addTarget:self action:@selector(magnifyImage:) forControlEvents:ASControlNodeEventTouchUpInside];
+        [_imageView5 addTarget:self action:@selector(magnifyImage:) forControlEvents:ASControlNodeEventTouchUpInside];
+        [_imageView6 addTarget:self action:@selector(magnifyImage:) forControlEvents:ASControlNodeEventTouchUpInside];
+        [_imageView1 addTarget:self action:@selector(magnifyImage:) forControlEvents:ASControlNodeEventTouchUpInside];
+        [_imageView7 addTarget:self action:@selector(magnifyImage:) forControlEvents:ASControlNodeEventTouchUpInside];
+        [_imageView8 addTarget:self action:@selector(magnifyImage:) forControlEvents:ASControlNodeEventTouchUpInside];
+        [_imageView9 addTarget:self action:@selector(magnifyImage:) forControlEvents:ASControlNodeEventTouchUpInside];
     }
     return self;
 }
 
 
--(void)magnifyImage:(UIGestureRecognizer *)sender {
+-(void)magnifyImage:(ASImageNode *)sender {
     
     NSLog(@"局部放大");
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:[sender bounds]];
+    imageV.image = sender.image;
     TupianFD *tupianfd = [[TupianFD alloc] init];
     _tupianFD = tupianfd;
-//    [tupianfd showWithImageArrayLocal:_originalPicArray andSelectedIndex:sender.view.tag andImagview:(UIImageView *)sender.view];
+    [tupianfd showWithImageArrayLocal:_originalPicArray andSelectedIndex:sender.view.tag andImagview:imageV];
 //    NSInteger der= sender.view.tag;
-    [tupianfd showWithImageArrayWeb:_urlPicArray andSelectedIndex:sender.view.tag andImagview:(UIImageView *)sender.view];
     
-//    [tupianfd  showWithImageArrayLocal:_originalPicArray andSelectedIndex:sender.view.tag andImagview:(UIImageView *)sender.view];
+//    [tupianfd showWithImageArrayWeb:_urlPicArray andSelectedIndex:sender.view.tag andImagview:(UIImageView *)sender.view];
+    
+    
+    [tupianfd  showWithImageArrayLocal:_originalPicArray andSelectedIndex:sender.view.tag andImagview:(UIImageView *)sender.view];
 }
 
 
@@ -678,14 +697,35 @@
 
 -(void)settingWebThumbNailImageWithImageView:(UIImageView *)view andUrlString:(NSString *)str andCount:(NSInteger)count {
     __typeof(self) weakSelf = self;
-    [view sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    if([manager diskImageExistsForURL:[NSURL URLWithString:str]]){
+//        NSLog(@"link is %@",[manager cacheKeyForURL:[NSURL URLWithString:str]]);
+      UIImage *image = [manager.imageCache imageFromDiskCacheForKey:str];
+        CGSize thumsize = [self getThumbNailSizeWith:count];
+        UIImage *image1 = image;
+        [image1 cropCenterAndScaleImageToSize:thumsize];
+        view.image = image1;
+    }
+    else
+    {
+    [manager downloadImageWithURL:[NSURL URLWithString:str] options:SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         CGSize thumsize = [weakSelf getThumbNailSizeWith:count];
         UIImage *image1 = image;
         [image1 cropCenterAndScaleImageToSize:thumsize];
         view.image = image1;
+        if (cacheType == SDImageCacheTypeDisk) {
+            NSLog(@"fffffff");
+        }
     }];
-
-    
+    }
+//    [view sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        CGSize thumsize = [weakSelf getThumbNailSizeWith:count];
+//        UIImage *image1 = image;
+//        [image1 cropCenterAndScaleImageToSize:thumsize];
+//        view.image = image1;
+//    }];
 }
 
 
