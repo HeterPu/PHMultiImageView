@@ -110,7 +110,7 @@ static CGRect oldframe;
     //设置最小伸缩比例
     scrollview.minimumZoomScale=1.0;
     scrollview.delegate = self;
-    scrollview.backgroundColor = [UIColor blueColor];
+    scrollview.backgroundColor = [UIColor blackColor];
        return scrollview;
 }
 
@@ -132,7 +132,7 @@ static CGRect oldframe;
     //设置最小伸缩比例
     scrollview.minimumZoomScale=1.0;
     scrollview.delegate = self;
-    scrollview.backgroundColor = [UIColor blueColor];
+    scrollview.backgroundColor = [UIColor blackColor];
     BOOL isLongPic = (image.size.height / image.size.width) > ([UIScreen mainScreen].bounds.size.height / [UIScreen mainScreen].bounds.size.width) ? YES : NO;
     if (isLongPic) {
         scrollview.contentSize = CGSizeMake(0,[UIScreen mainScreen].bounds.size.width * image.size.height / image.size.width);
@@ -163,7 +163,7 @@ static CGRect oldframe;
     scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * (array.count), 0);
  
     scrollView.pagingEnabled = YES;
-    scrollView.backgroundColor = [UIColor blueColor];
+    scrollView.backgroundColor = [UIColor blackColor];
     [window addSubview:scrollView];
 
     scrollView.delegate = self;

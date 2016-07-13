@@ -684,6 +684,7 @@
         UIImage *image = [manager.imageCache imageFromDiskCacheForKey:str];
         CGSize thumsize = [self getThumbNailSizeWith:count];
         UIImage *image1 = image;
+        NSLog(@"image width %f and height %f",image1.size.width,image1.size.width);
         [image1 cropCenterAndScaleImageToSize:thumsize];
         view.image = image1;
     }

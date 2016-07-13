@@ -65,9 +65,11 @@
             else
             {
                 
-                [manager downloadImageWithURL:[NSURL URLWithString:str] options:SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                [manager downloadImageWithURL:[NSURL URLWithString:str] options:SDWebImageHighPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                 } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-                    
+                    NSLog(@"url is %@",imageURL);
+                    NSLog(@"image width %f and height %f",image.size.width,image.size.width);
+
                 }];
             }
         }
