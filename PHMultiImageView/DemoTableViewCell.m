@@ -19,11 +19,12 @@
 @implementation DemoTableViewCell
 
 
-+(instancetype)DemoCellWithTableView:(UITableView *)tableview {
++(instancetype)DemoCellWithTableView:(UITableView *)tableview andIndexpath:(NSIndexPath *)indexpath{
     static NSString *ID = @"demo";
-  DemoTableViewCell  *cell = [tableview dequeueReusableCellWithIdentifier:ID];
+    NSString *idd = [NSString stringWithFormat:@"demo%li%li",indexpath.section,indexpath.row];
+  DemoTableViewCell  *cell = [tableview dequeueReusableCellWithIdentifier:idd];
     if (cell == nil) {
-        cell = [[DemoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[DemoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idd];
     }
     return cell;
 }
@@ -52,11 +53,38 @@
 
 
 -(void)settingframeandData{
+  
+    dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(concurrentQueue, ^{
 
-    [_phMulti PHMIVWithWidth:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, 100) AndWebPicUrlArray:_urlarray];
+        [_phMulti PHMIVWithWidth:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, 100) AndWebPicUrlArray:_urlarray];
+    
+    });
+                   
+}
+
+
+
+
+#pragma mark - Private method
+
+- (UIImage *)snapshot:(UIView *)view
+
+{
+    
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size,YES,0);
+    
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
     
 }
-     
+
+
+
      
 
 - (void)awakeFromNib {

@@ -12,5 +12,5 @@
 
 @property(nonatomic,strong)NSArray *urlarray;
 
-+(instancetype)DemoCellWithTableView:(UITableView *)tableview;
++(instancetype)DemoCellWithTableView:(UITableView *)tableview andIndexpath:(NSIndexPath *)indexpath;
 @end

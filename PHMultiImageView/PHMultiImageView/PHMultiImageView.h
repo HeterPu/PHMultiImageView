@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PHimageAllLoadedDelegate <NSObject>
+
+-(void)loadedchangedelegate;
+
+@end
+
+
 @interface PHMultiImageView : UIView
 
 

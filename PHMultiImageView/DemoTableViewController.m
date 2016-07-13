@@ -76,6 +76,7 @@
 }
 
 
+
 #pragma mark - Table view data source
 
 
@@ -109,10 +110,10 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DemoTableViewCell *cell = [DemoTableViewCell DemoCellWithTableView:tableView];
+    DemoTableViewCell *cell = [DemoTableViewCell DemoCellWithTableView:tableView andIndexpath:indexPath];
     cell.urlarray = self.urlSumArray[indexPath.section];
 //    cell.backgroundColor = [UIColor clearColor];
-    
+    NSLog(@"THE SECTION %li AND ROW IS %li",indexPath.section,indexPath.row);
     
     
     return cell;
