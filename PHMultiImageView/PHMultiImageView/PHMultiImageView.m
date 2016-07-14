@@ -11,11 +11,11 @@
 #import "TupianFD.h"
 #import "UIImage+Common.h"
 
+//设置图片的间隔和边距
 #define KPicMargin 0
 #define KPicPadding 2
 
 @interface PHMultiImageView()
-
 
 
 @property(nonatomic,weak)UIImageView *imageView1;
@@ -28,19 +28,14 @@
 @property(nonatomic,weak)UIImageView *imageView8;
 @property(nonatomic,weak)UIImageView *imageView9;
 
-
 @property(nonatomic,strong) NSArray *thumbNailPicArray;
 @property(nonatomic,strong) NSArray *originalPicArray;
-
 @property(nonatomic,strong) NSArray *urlPicArray;
-
 @property(nonatomic,strong)TupianFD *tupianFD;
 
 @end
 
 @implementation PHMultiImageView
-
-
 
 -(instancetype)init {
     self = [super init];
@@ -126,14 +121,6 @@
 }
 
 
-/**
- *  内部装有URL的字符串对象，需要自己包装字符串数组
- *
- *  @param frame
- *  @param array
- *
- *  @return
- */
 -(CGRect)PHMIVWithWidth:(CGRect)frame
       AndWebPicUrlArray:(NSArray *)array {
   CGRect rect = [self getRectFromFrame:frame andArray:array];
@@ -144,23 +131,12 @@
 }
 
 
-
-/**
- *  array 内部装有uiimage对象，需要自己包装uiimage数组
- *
- *  @param frame
- *  @param settingImageViewWithPicArray
- *  @param array
- *
- *  @return 返回视图调整后的frame
- */
 -(CGRect)PHMIVWithWidth:(CGRect)frame
        AndLocalPicArray:(NSArray *)array {
     CGRect rect = [self getRectFromFrame:frame andArray:array];
     [self settingImageViewWithPicArrayLocal:array];
     return rect;
 }
-
 
 -(void)settingImageViewWithPicArrayLocal:(NSArray *)array {
     _originalPicArray = array;
@@ -234,7 +210,8 @@
 }
 
 
--(NSArray *)getThumbNailPicArray:(NSArray *)PicArray AndIndex:(NSInteger)index {
+-(NSArray *)getThumbNailPicArray:(NSArray *)PicArray
+                        AndIndex:(NSInteger)index {
     NSMutableArray *tempt = [NSMutableArray array];
     for (UIImage * image in PicArray) {
         CGSize thumbsize = [self getThumbNailSizeWith:index];
@@ -363,7 +340,6 @@
            [self settingFrameWith:9];
     }
 }
-
 
 
 -(void)settingFrameWith:(NSInteger)count {
@@ -675,8 +651,9 @@
 }
 
 
-
--(void)settingWebThumbNailImageWithImageView:(UIImageView *)view andUrlString:(NSString *)str andCount:(NSInteger)count {
+-(void)settingWebThumbNailImageWithImageView:(UIImageView *)view
+                                andUrlString:(NSString *)str
+                                    andCount:(NSInteger)count {
     __typeof(self) weakSelf = self;
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     if([manager diskImageExistsForURL:[NSURL URLWithString:str]]){
@@ -701,7 +678,6 @@
             }
         }];
     }
-    
 }
 
 
@@ -842,9 +818,8 @@
 }
 
 
-
-
--(CGRect)getRectFromFrame:(CGRect)frame andArray:(NSArray *)array {
+-(CGRect)getRectFromFrame:(CGRect)frame
+                 andArray:(NSArray *)array {
     CGFloat width = frame.size.width;
     CGFloat pointx = frame.origin.x;
     CGFloat pointy = frame.origin.y;

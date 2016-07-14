@@ -19,9 +19,7 @@ static CGRect oldframe;
 
 @property(nonatomic,strong)NSMutableArray * imageArray;
 @property(nonatomic,strong)NSArray * urlStringArray;
-
 @property(nonatomic,assign)BOOL  isWeb;
-
 
 //@property(nonatomic,assign)float lastScale;
 //@property (nonatomic,assign) NSInteger lastPageNumber;
@@ -88,7 +86,7 @@ static CGRect oldframe;
 
 
 -(UIScrollView *)getWebImageViewWithCount:(NSInteger)count
-                              andImage:(UIImage *)image{
+                                 andImage:(UIImage *)image{
     
     UIScrollView *scrollview = [[UIScrollView alloc] init];
     scrollview.bounds = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height);
@@ -203,14 +201,12 @@ static CGRect oldframe;
 
 
 
--(void)settingWebImageWithScrollView:(UIScrollView *)scrollview
-{
+-(void)settingWebImageWithScrollView:(UIScrollView *)scrollview{
     UIImageView *imageview = [scrollview viewWithTag:10];
     if (imageview) {
         imageview.tag = 1;
         
         [imageview sd_setImageWithURL:[NSURL URLWithString: _urlStringArray[scrollview.tag - 11]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            
             
             imageview.bounds = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, image.size.height*[UIScreen mainScreen].bounds.size.width/image.size.width);
             imageview.center = CGPointMake([UIScreen mainScreen].bounds.size.width * (0.5) , [UIScreen mainScreen].bounds.size.height / 2);
@@ -286,8 +282,6 @@ static CGRect oldframe;
 //    scrollView.contentOffset = CGPointMake((0) * [UIScreen mainScreen].bounds.size.width, 0);
 
 
-    
-    
     [UIView animateWithDuration:0.3 animations:^{
         
         BOOL isLongPic = (imageavatar.size.height / imageavatar.size.width) > ([UIScreen mainScreen].bounds.size.height / [UIScreen mainScreen].bounds.size.width) ? YES : NO;
@@ -404,7 +398,6 @@ static CGRect oldframe;
    
     scrollViewSize.width = scrollViewSize.width * scale;
     scrollViewSize.height = scrollViewSize.height * scale;
-    
     
     scrollView.contentSize = scrollViewSize;
 //    view.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2);
