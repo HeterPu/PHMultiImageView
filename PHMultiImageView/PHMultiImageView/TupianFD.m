@@ -207,7 +207,7 @@ static CGRect oldframe;
 {
     UIImageView *imageview = [scrollview viewWithTag:10];
     if (imageview) {
-        imageview.tag = 11;
+        imageview.tag = 1;
         
         [imageview sd_setImageWithURL:[NSURL URLWithString: _urlStringArray[scrollview.tag - 11]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             
@@ -375,7 +375,7 @@ static CGRect oldframe;
     
     UIImageView *imageview = [scrollView viewWithTag:10];
     if (!imageview) {
-        imageview = [scrollView viewWithTag:11];
+        imageview = [scrollView viewWithTag:1];
     }
     return imageview;
 }
