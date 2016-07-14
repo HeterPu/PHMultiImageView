@@ -22,7 +22,7 @@ See `PHMultiImageView/PHMultiImageView.xcodeproj`
 Installation
 ==============
 1. Add `PHMultiImageView` to your project.
-2. You also need to add four foler `图片处理` `Color` `SDWebImage` to  your project.
+2. You also need to add three foler `图片处理` `Color` `SDWebImage` to  your project.
 
 Requirements
 ==============
@@ -31,4 +31,4 @@ This library requires `iOS 4.0+` and `Xcode 6.0+`.
 
 License
 ==============
-PHStockChart is provided under the MIT license. See LICENSE file for details.
+PHMultiImageView is provided under the MIT license. See LICENSE file for details.
