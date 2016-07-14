@@ -6,8 +6,7 @@ PHMultiImageView
 [![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 
 
-A super class encapsulate pictures in cube such like QQ zone
-very good
+A View encapsulate pictures in many cubes such like QQ zone.
 
 * [PHMultiImageView](https://github.com/HeterPu/PHMultiImageView) — A VIEW to show pictures in loacal and web .
 * [TupianFD](https://github.com/HeterPu/PHMultiImageView) — a object to show picture zoom state,you can scroll and zoom it.
