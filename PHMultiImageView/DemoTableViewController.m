@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor= [UIColor cyanColor];
+//    self.tableView.backgroundColor= [UIColor cyanColor];
     
     
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 50)];
@@ -115,6 +115,7 @@
     DemoTableViewCell *cell = [DemoTableViewCell DemoCellWithTableView:tableView andIndexpath:indexPath];
     cell.urlarray = self.urlSumArray[indexPath.section];
 //    cell.backgroundColor = [UIColor clearColor];
+    
     NSLog(@"THE SECTION %li AND ROW IS %li",indexPath.section,indexPath.row);
     
     

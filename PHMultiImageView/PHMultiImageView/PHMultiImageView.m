@@ -11,8 +11,8 @@
 #import "TupianFD.h"
 #import "UIImage+Common.h"
 
-#define KPicMargin 3
-#define KPicPadding 3
+#define KPicMargin 0
+#define KPicPadding 2
 
 @interface PHMultiImageView()
 

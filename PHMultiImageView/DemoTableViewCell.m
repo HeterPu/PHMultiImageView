@@ -35,7 +35,7 @@
     if (self) {
         
         PHMultiImageView *myview = [[PHMultiImageView alloc] init];
-        myview.backgroundColor = [UIColor lightGrayColor];
+//        myview.backgroundColor = [UIColor grayColor];
         
         [self.contentView addSubview:myview];
         _phMulti = myview;
